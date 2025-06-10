@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +8,23 @@
 <body>
     <script>
 
-var aluno = prompr("digite o nome do aluno: ")
-var notaPA= Number ("digite a nota da prova 1: ")
-var notaSA = Number ("digite a nota da prova 1: ")
+var nome = prompt("digite o nome do aluno: ")
+var notaPN = Number(prompt("digite a primeira nota"))
+var notaSN = Number(prompt("digite a segunda nota: "))
 
-var media = (notaPA + notaSA ) /2
+var media = (notaPN + notaSN) /2
 
-if(media >= 7){
-    console.log("o aluno esta aprovado😊")
+if(media <= 10 && media >=7){
+    alert("aprovado😁")
 }
-else if(media >= 4 && media < 7){
-    condole.log("aluno esta em recuperação😅")
+else if(media >= 4  && media < 7){
+    alert("vc deve fazer recuração😅")
+}
+else if(media < 4 && media >= 0){
+    alert ("reprovado😢")
 }
 else{
-    ("aluno esta reprovado😢")
+    alert("media invalida, verifique as notas😑")
 }
 
 
