@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+var altura = Number(prompt("escreva sua altura: "))
+var peso = Number(prompt("escreva seu peso: "))
+
+var IMC = peso / (altura **2) //nesse nao da para fazer o mesmo com o de baixo, so se fosse multiplicando a base varias vezes.
+var IMC = (peso /  altura **2) //se fosse elevado a 6 ou 10, tanto faz é so trocar o 2 por o numero que quero, qualquer um.
+var IMC = peso / math.pow( altura,2)//se fosse elevado a 6 ou 10, tanto faz é so trocar o 2 por o numero que quero, qualquer um.
+
+if(IMC < 18.5){
+    alert("vc esta abaixo do peso")
+}
+    else if(IMC >= 18.5 && IMC<= 25){
+        alert("peso ideial")
+    }
+else if(IMC >= 25.0 && IMC <=29.9 ){
+    alert("levemente acima do peso")
+}
+else ( IMC >=30.0){
+    alert("vc esta obeso")
+}
+
+
+
+
+    </script>
+</body>
+</html>
