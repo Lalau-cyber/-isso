@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+var Nivel= Number(prompt("digite 1 para nivel 1 \n digite 2 para nivel 2 \n e 3 para nivel 3: "))
+var horasTrabalhadas = Number(prompt("digite sua quantidade de horas trabalhadas: "))
+var salario = 0
+
+if(Nivel == 1){
+    salario = horasTrabalhadas * 12
+
+}
+else if(Nivel == 2){
+salario = horasTrabalhadas * 17
+
+}      
+else if(Nivel == 3){
+    salario = horasTrabalhadas * 25
+
+}
+else{
+    alert("reseio que tenha colocado o nivel errado, tente novamente🥲")
+}
+
+alert("Seu salario é: " + salario + " reais")
+    </script>
+</body>
+</html>
