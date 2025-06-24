@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+var combustivel = prompt("Digite o tipo de combustível (A para Álcool, G para Gasolina): ")
+var litros = Number(prompt("Digite a quantidade de litros abastecidos: "))
+var precoPagar = 0;
+var precofinal = 0;
+
+if(combustivel == "A" || combustivel == "a") {
+if(litros <= 20) {
+    precoPagar = litros * 4.29;
+    desconto = 3
+    precoFinal = precoPagar * desconto / 100
+    
+} else if(litros > 20) {
+    precoPagar = litros * 4.29;
+    desconto = 5
+    precoFinal = precoPagar * desconto / 100
+}}
+else if(combustivel == "G" || combustivel == "g") {
+
+    if(litros <= 20) {
+    precoPagar = litros * 5.15;
+       desconto = 4
+       precoFinal = precoPagar * desconto / 100;
+
+    } else if(litros > 20) {
+        
+    precoPagar = litros * 5.15;
+    desconto = 6
+    precoFinal = precoPagar * desconto / 100;
+}}
+else{
+    alert(" nao identificado, descubra vc mesmo")
+}
+alert("O valor a pagar é: " + precoPagar + " reais, com o desconto, fica " + precoFinal + )
+
+    </script>
+
+
+</body>
+</html>
