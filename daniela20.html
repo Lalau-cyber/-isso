@@ -1,34 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #aula {
+            background: gray;
+            text-align: center;
+            padding: 100px;
+            width: 300px;
+        }
+        
+        </style>
 </head>
 <body>
-    <div id="aula"onclick="clicar()">
-     botão
+    <div id="aula" onclick="clicar()" onmouseenter="entrar()">
+     Botão
     </div>
 
-<style>
-#aula {
-    background: gray;
-    text-align: center;
-    padding: 100px;
-    width: 300px;
-}
-#aula:hover {
-    background: rgb(251, 255, 0);
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-}
-</style>
 <script>
 function clicar(){
 
    aula.style.background = 'red'
    aula.innerText = 'Clicou'
    aula.style.color = 'white'
+}
+
+function entrar(){
+    aula.style.background = 'yellow'
+    aula.innerText = 'Entrou'
 }
 </script>
 
