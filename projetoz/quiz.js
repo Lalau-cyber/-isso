@@ -3,7 +3,7 @@ const botaoJogar = document.getElementById("botaoJogar");
 const diviniciojogo = document.getElementById("iniciojogo");
 const caixaUniQuizDiv = document.getElementById("caixaUniQuiz");
 const divtextopergunta = document.getElementById("textoperguntas");
-const btnProximo = document.getElementById("botaoproximo");
+const btnProximo = document.getElementById("botaoProximo");
 
 let indicePerguntas = 0;
 
