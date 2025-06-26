@@ -4,13 +4,15 @@ const diviniciojogo = document.getElementById("iniciojogo");
 const caixaUniQuizDiv = document.getElementById("caixaUniQuiz");
 const divtextopergunta = document.getElementById("textoperguntas");
 const btnProximo = document.getElementById("botaoProximo");
-
+const divfinalScore = document.getElementById("divFinal");
+const divacertos = document.getElementById("acertos");
+const btnReiniciar = document.getElementById("botaoReiniciar");
 let indicePerguntas = 0;
 
 let contadorRespostasCorretas = 0
 
 botaoJogar.addEventListener("mouseover", iniciarjogo)
-
+btnReiniciar.addEventListener("click", () => location.reload())
 
 
 
@@ -36,7 +38,7 @@ function carregarQuestao(questao) {
     // tornando a DIV das questões visível
     caixaUniQuizDiv.classList.add("active");
 
-    btnProximo.disabled = true
+    // btnProximo.disabled = true
     divtextopergunta.textContent = questao.pergunta
     opcoesRespostas.innerHTML = ""
     questao.opcoes.forEach(opcao => {
@@ -62,7 +64,7 @@ function validarresposta(respostaSelecionada) {
         }
 
         botao2.disabled = true
-        
+
 
     })
     if (respostaSelecionada == gabarito) {
@@ -74,6 +76,16 @@ function carregarProximaQuestao() {
     indicePerguntas++;
     if (indicePerguntas < perguntasQuiz.length)
         carregarQuestao(perguntasQuiz[indicePerguntas]);
-    else
-        alert("não existe mais perguntas...\n voce acertou " + contadorRespostasCorretas)
+    else {
+        tratamentoTelas()
+armazenardados()
+    }
+
 }
+function tratamentoTelas() {
+    caixaUniQuizDiv.classList.remove("active")
+    divfinalScore.classList.add("active")
+    divacertos.textContent = `você acertou ${contadorRespostasCorretas} qiestões de ${perguntasQuiz.length} perguntas`
+}
+function armazenardados() {
+    localStorage.setItem("pontuação", contadorRespostasCorretas);}
