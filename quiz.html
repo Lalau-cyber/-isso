@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href=" UniQuiz.css">
+</head>
+<body>
+    <div id="iniciojogo">
+        <button id="botaoJogar" class="main-btn" >Jogar</button>
+    </div>
+    
+    <div id="caixaUniQuiz" class="tela-container">   
+        <h2 id="textoperguntas" class="questaoUniQuiz"></h2>     
+        <div id="opcoesRespostas" class="opcoesRespostas">
+        </div>
+        <button id="botaoProximo" class="botaoProximo" onclick="carregarProximaQuestao()">Próxima Questão</button>
+    </div>
+
+    <div id="divFinal" class="tela-container">   
+        <h2 id="acertos" class="questaoUniQuiz"></h2>     
+        <button id="divFinalScore" class="botaoProximo">Reiniciar jogo</button> 
+        </div>
+
+
+    <script src="quiz.js"></script>
+</body>
+</html>
