@@ -1,5 +1,5 @@
 body {
-    background-color: #a4c7ee;/* Cor de fundo */ 
+    background-image: linear-gradient( to top rgb(119, 176, 199), rgb(51, 85, 148));
    padding: auto;
     border-radius: 15px;
     align-items: center;
@@ -16,6 +16,7 @@ body {
     margin-top: 10px;*/
     margin: auto;
   box-shadow: 6px 6px 11px rgba(0, 0, 0, 0.5);
+  width: 400px;
 }
 .div1:hover{
  background: rgb(115, 170, 202);
@@ -25,36 +26,39 @@ h1{
     text-align: center;
     margin: 50px auto;
    }
-.div2{
-    border: 3PX solid rgb(0, 0, 0);
-    background: rgb(81, 137, 170);
-    width: 50px;
-    border-radius: 15px;
-    margin: 5px auto;
-    text-align: center;
-    width: 50%;
-}
 
 p{
+    text-align: center;
     border-radius: 10px;
     background: rgb(131, 192, 228);
     color: white;
     border-radius:20px ;
-    width: 200px;
-text-align: center;
-margin-left: 30px;
+    width: 250px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
 }
 p:hover{
     background: rgb(52, 137, 173);
     color: black;
 }
 
+.p4{
+    border: 3PX solid rgb(0, 0, 0);
+    background: rgb(81, 137, 170);
+    width: 50px;
+    border-radius: 15px;
+    margin: 15px auto;
+    text-align: center;
+    width: 30%;
+}
+
   input{
     border-radius: 10px;
-    background: rgb(94, 139, 167);
+    background: rgb(218, 220, 221);
     color: rgb(0, 0, 0);
     width:75% ;
     margin: 5px;
-    border: 0px;
   }
   
