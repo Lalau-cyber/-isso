@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var soma = 0
+        var multi = Number(prompt("qual multiplo: "))
+        var inicio = Number(prompt(" multiplo inicial: "))
+        var final = Number(prompt("multiplo final: "))
+            
+        for(let x = inicio; x <= final; x ++){
+            alert(x)
+
+            if  (x % multi == 0 ){
+                soma = soma + x
+            }
+        }
+                
+            
+        alert("a soma dos multiplos são: " + soma)
+
+    </script>
+</body>
+</html>
