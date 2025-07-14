@@ -1,0 +1,28 @@
+
+<div id="minhaDiv" class="estilo1">Ola</div>
+<button id="botao">Trocar</button>
+
+<style>
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+.estilo1 {
+  background: red;
+}
+.estilo2 {
+  background: blue;
+}
+
+</style>
+
+
+<script>
+document.getElementById("botao").addEventListener("click", function() {
+  document.getElementById("minhaDiv").className = "estilo2";
+});
+</script>
