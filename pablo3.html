@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <button onclick="drawCard()">Puxar carta</button>
+  <div id="card"></div>
+
+
+  <script>
+    let deckId = '';
+
+
+    // Criar novo baralho ao carregar a página
+    fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
+      .then(res => res.json())
+      .then(data => {
+        deckId = data.deck_id;
+      });
+
+
+    function drawCard() {
+      fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
+        .then(res => res.json())
+        .then(data => {
+          const img = data.cards[0].image;
+          document.getElementById('card').innerHTML = `<img src="${img}" />`;
+        });
+    }
+  </script>
+</body>
+</html>
