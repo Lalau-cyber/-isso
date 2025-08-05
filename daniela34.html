@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Escrever um algoritmo que leia uma quantidade de números que deve ser
+    lidos e conte quantos deles estão nos seguintes intervalos: [0.25], [26,50],
+    [51,75] e [76,100]-->
+
+<script>
+
+let faixa1 = 0; faixa2 = 0; faixa3 = 0; faixa4 = 0
+let N
+let num = 0
+num = Number(prompt("quanto números você quer ler: "))
+while(num >= 1){
+     
+      N = Number(prompt("digite um número de 0 a 100"))
+
+   if(N >= 0 && N <= 25){
+        faixa1 = faixa1 + 1
+  }
+   else if(N >= 26 && N <= 50){
+    
+        faixa2 = faixa2 + 1
+}
+   else if( N >= 51 && N <= 75){
+
+        faixa3 = faixa3 + 1
+}
+   else if(N >= 76 && N <=100 ){
+
+        faixa4 = faixa4 + 1
+}
+   else{
+        alert("número ínvalido")
+}
+num = num - 1
+
+}
+alert("faixa 1(0-25): " + faixa1)
+alert("faixa 2(26-50): " + faixa2)
+alert("faixa 3(51-75): " + faixa3)
+alert("faixa 4(76-100): " + faixa4)
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
