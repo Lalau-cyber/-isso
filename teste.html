@@ -1,36 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Vamos jogar</title>
 </head>
 <body>
-    <script>
+    <!--1. Tela inicial com botão "Começar"
+2. Tela de regras do jogo
+3. Tela principal com o dado e botão "Rolar"
+4. Tela de resultados parciais
+5. Tela final com pontuação e botão "Reiniciar"
+O sistema deve permitir navegação entre as telas usando botões.
+6. Tela de créditos com informações sobre os desenvolvedores e agradecimentos
 
-let apple_1 = 1.30
-let apple_2 = 1.00
-let total
+Comando:
+Desenvolva o jogo descrito, utilizando HTML, CSS e JavaScript. O dado deve
+mostrar um número aleatório de 1 a 6 a cada clique no botão "Rolar", e as telas
+devem ser trocadas sem recarregar a página.-->
 
-let quant = Number(prompt("quantas maçãs você comprou? "))
+<div id="tela-inicial" class="telaInicial">
+    <h1>Bem-vindo ao Jogo!</h1>
+    <button id="comecar">Começar</button>
 
-if(quant < 12){
-     total = quant * apple_1
+    <div>
+<button class="regras">❓</button>
+    </div>
 
-     console.log(`você comprou ${quant} maçãs e ira pagar ${total} reais`)
-}
-else if(quant > 12){
-    total = quant * apple_2
+    <div>
 
-    console.log(`você comprou ${quant} maçãs e ira pagar ${total} reais`)
-}
-
-
-
+        <button id="rolarDado">rolar dados</button>
+    </div>
 
 
 
+<script>
 
-    </script>
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
