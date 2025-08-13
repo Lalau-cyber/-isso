@@ -1,0 +1,179 @@
+1. A PARTE DO HTML — A CASINHA DAS CARTAS
+<div class="game-board" id="gameBoard"></div>
+<button id="reset-btn">Reiniciar</button>
+
+
+Aqui é como se a gente tivesse uma caixa onde as cartas vão ficar.
+
+Essa caixa se chama gameBoard.
+
+Tem também um botão chamado “Reiniciar” que serve para começar o jogo de novo.
+
+2. A PARTE DO CSS — O VESTIDO BONITO DAS CARTAS
+.card {
+  width: 100px;
+  height: 100px;
+  background: #2e3d49;
+  border-radius: 8px;
+  cursor: pointer;
+  ...
+}
+
+
+O CSS é como a roupa e o visual das cartas e do jogo.
+
+Ele deixa as cartas quadradinhas, com cores legais, e faz elas virarem quando clicamos.
+
+Também coloca o botão com cor bonita.
+
+3. A PARTE DO JAVASCRIPT — O CÉREBRO DO JOGO
+
+O JavaScript é a parte que faz o jogo funcionar. É como se fosse o cérebro do jogo, que pensa e decide o que fazer.
+
+3.1. LISTA DAS CARTAS (AS FRUTAS)
+const cardsArray = ['🍎', '🍎', '🍌', '🍌', '🍇', '🍇'];
+
+
+Aqui o jogo guarda quais desenhos vão ter nas cartas.
+
+Cada desenho aparece duas vezes para formar pares.
+
+3.2. MISTURAR AS CARTAS (EMBARALHAR)
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+Essa função mistura as cartas para que elas não fiquem sempre no mesmo lugar.
+
+É como se a gente embaralhasse as cartas antes de começar a brincar.
+
+3.3. CRIAR O TABULEIRO (COLOCAR AS CARTAS NA TELA)
+function createBoard() {
+  gameBoard.innerHTML = '';
+  const shuffledCards = shuffle(cardsArray.slice());
+
+  shuffledCards.forEach((emoji, index) => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.dataset.emoji = emoji;
+
+    card.innerHTML = `
+      <div class="card-inner">
+        <div class="card-front"></div>
+        <div class="card-back">${emoji}</div>
+      </div>
+    `;
+
+    card.addEventListener('click', flipCard);
+
+    gameBoard.appendChild(card);
+  });
+}
+
+
+Essa parte coloca as cartas na tela.
+
+Cada carta é criada com o desenho por trás, mas mostra só a frente (que está virada).
+
+Quando você clicar numa carta, o jogo vai chamar uma função para virar a carta (flipCard).
+
+3.4. VIRAR A CARTA QUANDO CLICAR
+function flipCard() {
+  if (lockBoard) return;  // Se o jogo está travado, não deixa clicar
+  if (this === firstCard) return; // Não deixa virar a mesma carta duas vezes
+
+  this.classList.add('flipped'); // Vira a carta para mostrar o desenho
+
+  if (!hasFlippedCard) {
+    hasFlippedCard = true;  // Diz que a primeira carta já foi virada
+    firstCard = this;       // Guarda qual foi a primeira carta
+    return;
+  }
+
+  secondCard = this;       // Guarda a segunda carta
+  lockBoard = true;        // Trava o jogo para não clicar em outras cartas
+
+  checkForMatch();         // Verifica se as cartas são iguais
+}
+
+
+Quando você clica numa carta, ela vira.
+
+O jogo lembra qual foi a primeira carta que você virou.
+
+Quando vira a segunda, ele trava o jogo para pensar se as duas cartas combinam.
+
+3.5. VERIFICAR SE AS CARTAS SÃO IGUAIS
+function checkForMatch() {
+  const isMatch = firstCard.dataset.emoji === secondCard.dataset.emoji;
+
+  if (isMatch) {
+    disableCards();
+  } else {
+    unflipCards();
+  }
+}
+
+
+O jogo compara se as duas cartas mostram o mesmo desenho.
+
+Se forem iguais, ele “desliga” essas cartas (para você não virar elas de novo).
+
+Se forem diferentes, ele vira as duas de volta.
+
+3.6. DESLIGAR AS CARTAS QUE JÁ FORMARAM PAR
+function disableCards() {
+  firstCard.removeEventListener('click', flipCard);
+  secondCard.removeEventListener('click', flipCard);
+
+  resetBoard();
+}
+
+
+Quando as cartas combinam, o jogo tira o clique delas para que não possam virar de novo.
+
+Depois, ele “limpa” as variáveis para você continuar jogando.
+
+3.7. VIRAR AS CARTAS ERRADAS DE VOLTA
+function unflipCards() {
+  setTimeout(() => {
+    firstCard.classList.remove('flipped');
+    secondCard.classList.remove('flipped');
+
+    resetBoard();
+  }, 1000);
+}
+
+
+Se as cartas forem diferentes, o jogo espera 1 segundinho para você ver.
+
+Depois vira as cartas de volta para esconder o desenho.
+
+Por fim, libera o jogo para você continuar.
+
+3.8. LIMPAR O TABULEIRO PARA CONTINUAR JOGANDO
+function resetBoard() {
+  [hasFlippedCard, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
+}
+
+
+Essa função limpa as variáveis para o jogo saber que você ainda pode virar cartas.
+
+É como resetar as anotações para começar a jogar outra vez.
+
+3.9. BOTÃO PARA REINICIAR O JOGO
+resetBtn.addEventListener('click', () => {
+  resetBoard();
+  createBoard();
+});
+
+
+Quando você aperta o botão “Reiniciar”, o jogo começa tudo de novo.
+
+As cartas são embaralhadas e o tabuleiro é criado de novo limpinho
