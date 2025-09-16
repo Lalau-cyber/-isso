@@ -1,67 +1,42 @@
-import { StyleSheet, Text, View, Image, Button, TouchableOpacity, Alert } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
 export default function App() {
-
-  function handleButtonPress() {
-    Alert.alert(`Botao pressionado`, `voce clicou no botao`)
-  }
-
-  function handleTouchablePress() {
-    Alert.alert(`Touchable pressionado`, `voce clicou no botao personalizado`)
-  }
-
-
-
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Ola mundinho</Text>
-      <Image source={{ uri: 'https://images.unsplash.com/photo-1610393144490-a930182ad2f1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG9yaXpvbnRlJTIwbWFyfGVufDB8fDB8fHww' }}
-        style={styles.image}
-      />
-      <Button title='clique aqui'
-        onpress={handleButtonPress}
-        style={styles.customButtom} />
-      <TouchableOpacity style={styles.customButtom}
-        onPress={handleTouchablePress}>
-        <Text style={styles.buttonText}> uhuh</Text>
-      </TouchableOpacity>
+      <Text style={styles.titulo}>olalaa!</Text>  
+        <Image source = {{uri: 'https://static.vecteezy.com/ti/vetor-gratis/t1/7384234-fundo-ceu-azul-e-nuvens-brancas-vetor.jpg'}}
+      style={{width:300, 
+        height: 300, 
+        borderColor:'black', 
+        borderWidht:1,
+        alignItems: 'center',
+        justifyContent: 'top',
+        margin: 100,
+      }
+      }/>
+      <Button style={styles.batao} title='Clique ' onPress={()=>alert("você clicou")}/>
+      <Button style={styles.batao} title=' aqui' onPress={()=>alert("de novo")}/>
     </View>
   );
 }
-
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
-    backgroundColor: 'rgb(220, 250, 252)',
-    alingItems: 'center',
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'top',
+    margin: 100,
+    
+  },
+  batao: {
+   flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
-    padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20
-  },
+   alignItems: 'center'
 
-  image: {
-    width: 190,
-    height: 190,
-    marginBottom: 40
-  },
-
-  customButtom: {
-    backgroundColor: 'rgb(12, 164, 211)',
-    padding: 10,
-    borderRadius: 5,
-    marginTop: 10
-  },
-
-  buttonText: {
-    color: '#fff',
-    fontSize: 16
   }
 
-
-
-})
+  
+ 
+});
